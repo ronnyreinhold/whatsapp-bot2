@@ -8,8 +8,8 @@ Actually, it goes against whatsapp policy then use at your own risk.
 
 
 ### TO-DO
-[] Implement AI 
-[] Translate all comments to English
+- [ ] Integrate with artificial intelligence 
+- [ ] Translate all comments to English
 
 ### Known Issues
 Can't start Chromium as root user on Linux, it gives a Sandbox error. 

@@ -1,0 +1,13 @@
+{
+  "name": "whatsapp-bot2",
+  "version": "0.1",
+  "main": "bot.js",
+  "description": "Biblioteca para interagir com API Web Whatsapp",
+  "license": "MIT",
+  "scripts": {
+    "bot": "node bot.js"
+  },
+  "dependencies": {
+    "puppeteer": "^1.17.0"
+  }
+}

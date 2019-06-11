@@ -8,9 +8,9 @@ Actually, it goes against whatsapp policy then use at your own risk.
 
 
 ### TO-DO
-Implement AI.
-Translate all comments to English
+[] Implement AI 
+[] Translate all comments to English
 
 ### Known Issues
 Can't start Chromium as root user on Linux, it gives a Sandbox error. 
-You can find a work around in [https://github.com/GoogleChrome/puppeteer/blob/master/docs/troubleshooting.md](Puppeteer-Troubleshooting). 
+You can find a work around in [Puppeteer-Troubleshooting](https://github.com/GoogleChrome/puppeteer/blob/master/docs/troubleshooting.md). 

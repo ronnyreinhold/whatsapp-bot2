@@ -28,7 +28,7 @@ client.on('ready', () => {
 client.on('message', async msg => {
     console.log('MESSAGE RECEIVED', msg);
 
-    if (msg.body.toUpperCase().indexOf('RONNY') > 1) {
+    if (msg.body.toUpperCase().indexOf('RONNY') > -1) {
         // Envia mesangem como resposta
         msg.reply('Chamou?');
 

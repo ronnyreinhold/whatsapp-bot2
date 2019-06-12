@@ -22,7 +22,7 @@ Actually, it goes against whatsapp policy, then use it at your own risk.
 **!echo** Answer with the same message  
 **!desc** Send group description   
 
-To add more commandas, edit bot.js file.
+To add more commands, edit bot.js file.
 
 ### TO-DO
 - [ ] Implement more bot commands 

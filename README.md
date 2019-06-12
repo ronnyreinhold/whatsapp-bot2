@@ -18,9 +18,9 @@ Actually, it goes against whatsapp policy, then use it at your own risk.
 **Puppeteer** Will download Chromium automatically
 
 ## Bot Commands
-**!ping** Answer with pong message
-**!echo** Answer with the same message
-**!desc** Send group description 
+**!ping** Answer with pong message  
+**!echo** Answer with the same message  
+**!desc** Send group description   
 
 To add more commandas, edit bot.js file.
 

@@ -12,10 +12,10 @@ Actually, it goes against whatsapp policy, then use it at your own risk.
 1. Clone repository
 2. Run `yarn` on command line to download node_modules
 3. Run `yarn bot` to start application
-4. Scan **QR Code** with Whatsapp App
-5. Send Whatsapp messages with command to control BOT.
+4. Scan `QR Code` with Whatsapp App
+5. Send BOT messages to control it.
 
-*Puppeteer* Will download Chromium automatically
+**Puppeteer** Will download Chromium automatically
 
 ## Bot Commands
 **!ping** Answer with pong message

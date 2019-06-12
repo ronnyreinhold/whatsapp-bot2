@@ -54,7 +54,6 @@ class Client extends EventEmitter {
                 if(err.name === 'TimeoutError') {
                     this.emit(Events.AUTHENTICATION_FAILURE, 'Unable to log in. Are the session details valid?');
                     browser.close();
-
                     return;
                 } 
 

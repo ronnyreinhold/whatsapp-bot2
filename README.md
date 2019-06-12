@@ -4,7 +4,7 @@ BOT that connects throught Whatsapp Web Browser
 **NOTE** I've been testing this application and its working for me, but it's not totally safe. 
 Actually, it goes against whatsapp policy, then use it at your own risk. 
 
-## Prerequise
+## Prerequisites
 - Node
 - Yarn
 
@@ -30,5 +30,5 @@ To add more commands, edit bot.js file.
 - [ ] Translate all comments to English
 
 ### Known Issues
-Can't start Chromium as root user on Linux, it gives a Sandbox error. 
+You can't start Chromium as root user on Linux, it gives a Sandbox error. 
 You can find a work around in [Puppeteer-Troubleshooting](https://github.com/GoogleChrome/puppeteer/blob/master/docs/troubleshooting.md). 

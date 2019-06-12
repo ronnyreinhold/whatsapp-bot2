@@ -1,7 +1,7 @@
 'use strict';
 
 /**
- * Representa estrutura de dados do whatsapp
+ * Representa estrutura de dados do whatsapp.
  */
 
  class Base {

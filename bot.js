@@ -1,6 +1,14 @@
 const Client  = require('./src/Client');
+const { Chrome, WA } = require('./src/util/Constants');
 
-const client = new Client({ puppeteer: { headless: false }});
+const session = {
+    WABrowserId: WA.BROSER_ID,
+    WASecretBundle: WA.SECRET_BUNDLE,
+    WAToken1: WA.TOKEN1,
+    WAToken2: WA.TOKEN2
+}
+
+const client = new Client({ session, chrome: Chrome.NO_SANDBOX, puppeteer: { headless: false }});
 // Você pode utilizar uma sessão existente do Whatsapp Web para evitar ficar lendo QRCode, basta adicionar os dados de uma sessão existente
 // O objeto precisa incluir WABrowserId, WASecretBundle, WAToken1 and WAToken2.
 

@@ -27,11 +27,12 @@ class Client extends EventEmitter {
      * Configura evento e inicia autenticação
      */
     async initialize() {
-        const browser = await puppeteer.launch(this.options.puppeteer);
+        const browser = await puppeteer.launch(this.options.chrome, this.options.puppeteer);
         const page = await browser.newPage();
         page.setUserAgent(UserAgent);
 
         if(this.options.session) {
+            console.log(this.options.session);
             await page.evaluateOnNewDocument (
                 session => {
                     localStorage.clear();

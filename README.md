@@ -5,15 +5,15 @@ BOT that connects throught Whatsapp Web Browser
 Actually, it goes against whatsapp policy, then use it at your own risk. 
 
 ## Prerequisites
-- Node
-- Yarn
+- [Node](https://nodejs.org/en/)
+- [Yarn](https://yarnpkg.com/pt-BR/)
 
 ## Run Application
 1. Clone repository
 2. Run `yarn` on command line to download node_modules
 3. Run `yarn bot` to start application
-4. Scan `QR Code` with Whatsapp App
-5. Send BOT messages to control it.
+4. Scan `QR Code` with Whatsapp App or config `WA Session` into **Contants.js**
+5. Send BOT COMMANDS to control it.
 
 **Puppeteer** Will download Chromium automatically
 

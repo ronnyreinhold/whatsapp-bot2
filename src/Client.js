@@ -11,6 +11,12 @@ const Message = require('./models/Message');
 
 /**
  * Inicio da interação com API Whatsapp Web
+ * @param session Dados de sessão já inicializada do WA, para evitar leitura de QRCode: 
+ * WABrowserId, WASecretBundle, WAToken1 and WAToken2
+ * @param chrome Parametro utilizado para evitar o erro conhecido do chromium no linux, ao inicializar
+ * o navegador como root do sistema. Chrome.NO_SANDBOX
+ * @param puppeteer Parametro utilizado pelo puppeteer para definir padrão de inicialização, 
+ * ex: headless: true (Inicializa navegador sem interface gráfica). 
  * @extends {EventEmitter}
  */
 class Client extends EventEmitter {

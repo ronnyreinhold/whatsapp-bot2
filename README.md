@@ -32,4 +32,4 @@ To add more commands, edit bot.js file.
 ### ~~Known Issues~~
 ~~You can't start Chromium as root user on Linux, it gives a Sandbox error.~~
 ~~You can find a work around in [Puppeteer-Troubleshooting](https://github.com/GoogleChrome/puppeteer/blob/master/docs/troubleshooting.md).~~  
-You can pass a **chrome** proprierty into Client to solve this: `chome: Chrome.NO_SANDNBOX` 
+You can pass `chome: Chrome.NO_SANDNBOX` proprierty into Client when instatiate it to solve this issue.  

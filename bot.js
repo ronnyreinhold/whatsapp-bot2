@@ -1,11 +1,13 @@
 const Client  = require('./src/Client');
-const { Chrome, WA } = require('./src/util/Constants');
+const { Chrome } = require('./src/util/Constants');
+const dotenv = require('dotenv');
+dotenv.config();
 
 const session = {
-    WABrowserId: WA.BROSER_ID,
-    WASecretBundle: WA.SECRET_BUNDLE,
-    WAToken1: WA.TOKEN1,
-    WAToken2: WA.TOKEN2
+    WABrowserId: process.env.BROWSER_ID,
+    WASecretBundle: process.env.SECRET_BUNDLE,
+    WAToken1: process.env.TOKEN1,
+    WAToken2: process.env.TOKEN2
 }
 
 const client = new Client({ session, chrome: Chrome.NO_SANDBOX, puppeteer: { headless: false }});

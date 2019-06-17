@@ -10,13 +10,6 @@ exports.Chrome = {
     }
 }
 
-exports.WA = { 
-    BROSER_ID: '"eAd3btqL4XCrvuX/DXxmnQ=="',
-    SECRET_BUNDLE: '{"key":"OCgOyhRk1HGT8Ois+aW3qHhjmfN3sKq13iSE/rFRym4=","encKey":"Sgi/x/au7rytcE9yNbUrdML6WlJ9j75f6o1c8/mndWI=","macKey":"OCgOyhRk1HGT8Ois+aW3qHhjmfN3sKq13iSE/rFRym4="}',
-    TOKEN1: '"KC6G2APun48pcIbS4OcJjTAfoSxdxKDMDgSU5qxQzBM="',
-    TOKEN2: '"1@g7wO7DDB5efn9a9QoXOstOD/9kK7/yBRoJywlbpU1rjk4xMz85VLClS5Kh3CB66HhdSxaFOpVVGmNg=="'
-}
-
 exports.DefaultOptions = {
     puppeteer: {
         headless: true

@@ -29,6 +29,7 @@ To add more commands, edit bot.js file.
 - [ ] Integrate with artificial intelligence 
 - [ ] Translate all comments to English
 
-### Known Issues
-You can't start Chromium as root user on Linux, it gives a Sandbox error. 
-You can find a work around in [Puppeteer-Troubleshooting](https://github.com/GoogleChrome/puppeteer/blob/master/docs/troubleshooting.md). 
+### ~~Known Issues~~
+~~You can't start Chromium as root user on Linux, it gives a Sandbox error.~~
+~~You can find a work around in [Puppeteer-Troubleshooting](https://github.com/GoogleChrome/puppeteer/blob/master/docs/troubleshooting.md).~~  
+You can pass a **chrome** proprierty into Client to solve this: `chome: Chrome.NO_SANDNBOX` 

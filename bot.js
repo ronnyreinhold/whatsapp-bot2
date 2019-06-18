@@ -11,7 +11,7 @@ const session = {
     WAToken2: process.env.TOKEN2
 }
 
-const client = new Client({ /*session, chrome: Chrome.NO_SANDBOX,*/ puppeteer: { headless: false }});
+const client = new Client({ session, chrome: Chrome.NO_SANDBOX, puppeteer: { headless: false }});
 
 client.initialize();
 

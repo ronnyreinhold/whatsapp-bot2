@@ -1,4 +1,5 @@
 const Client  = require('./src/Client');
+const StockMarket = require('./src/models/StockMarket');
 const { Chrome } = require('./src/util/Constants');
 const dotenv = require('dotenv');
 dotenv.config();
@@ -10,7 +11,7 @@ const session = {
     WAToken2: process.env.TOKEN2
 }
 
-const client = new Client({ session, chrome: Chrome.NO_SANDBOX, puppeteer: { headless: false }});
+const client = new Client({ /*session, chrome: Chrome.NO_SANDBOX,*/ puppeteer: { headless: false }});
 
 client.initialize();
 
@@ -43,6 +44,11 @@ client.on('message', async msg => {
         // Envia mensagem para o mesmo chat
         client.sendMessage(msg.from, 'pong');
 
+    } else if (msg.body.startsWith('!stock ')) {
+        let ticker = msg.body.slice(7);
+        let company = new StockMarket(ticker);
+        //client.sendMessage(msg.from, company);
+
     } else if (msg.body.startsWith('!subject ')) {
         // Altera o assunto do grupo
         let chat = await msg.getChat();
@@ -52,9 +58,11 @@ client.on('message', async msg => {
         } else {
             msg.reply('This command can only be used in a group!');
         }
+
     } else if (msg.body.startsWith('!echo ')) {
         // Responde com a mesma mensagem
         msg.reply(msg.body.slice(6));
+
     } else if (msg.body.startsWith('!desc ')) {
         // Altera descrição do grupo
         let chat = await msg.getChat();
@@ -64,6 +72,7 @@ client.on('message', async msg => {
         } else {
             msg.reply('This command can only be used in a group!');
         }
+
     } else if (msg.body == '!leave') {
         // Sai do grupo
         let chat = await msg.getChat();

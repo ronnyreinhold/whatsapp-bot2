@@ -38,6 +38,7 @@ class Client extends EventEmitter {
         page.setUserAgent(UserAgent);
 
         if(this.options.session) {
+            console.log(this.options.session);
             await page.evaluateOnNewDocument (
                 session => {
                     localStorage.clear();

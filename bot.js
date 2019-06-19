@@ -45,9 +45,11 @@ client.on('message', async msg => {
         client.sendMessage(msg.from, 'pong');
 
     } else if (msg.body.startsWith('!stock ')) {
-        let ticker = msg.body.slice(7);
-        let company = new StockMarket(ticker);
-        //client.sendMessage(msg.from, company);
+        let ticker  = msg.body.slice(7).toUpperCase();
+        let company = await new StockMarket(ticker);
+        let price   = company.getPrice().toString();
+        console.log(price);
+        //client.sendMessage(msg.from, company.getPrice());
 
     } else if (msg.body.startsWith('!subject ')) {
         // Altera o assunto do grupo

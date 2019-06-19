@@ -1,4 +1,5 @@
 const Client  = require('./src/Client');
+const Util = require('./src/util/Util');
 const StockMarket = require('./src/models/StockMarket');
 const { Chrome } = require('./src/util/Constants');
 const dotenv = require('dotenv');
@@ -46,9 +47,10 @@ client.on('message', async msg => {
 
     } else if (msg.body.startsWith('!stock ')) {
         let ticker  = msg.body.slice(7).toUpperCase();
-        let company = await new StockMarket(ticker);
-        let price   = company.getPrice().toString();
-        console.log(price);
+        let stockInfo = Util.getStockInfo(ticker);
+        let company =  new StockMarket();
+        //let price   = company.price;
+        //console.log(price);
         //client.sendMessage(msg.from, company.getPrice());
 
     } else if (msg.body.startsWith('!subject ')) {

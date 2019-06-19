@@ -1,5 +1,6 @@
 'use strict';
 
+const axios = require('axios');
 const has = (o, k) => Object.prototype.hasOwnProperty.call(o, k);
 
 class Util {
@@ -26,6 +27,35 @@ class Util {
     }
 
     return given;
+  }
+
+  /**
+   * Get`s Stock price
+   */
+  static async getStockInfo(ticker){
+    if(ticker.length < 4 || ticker.length > 5){
+          throw new Error(`The ${ticker} company must have between 4 and 5 caracters`);
+    }
+
+    const query = {
+        "symbols": {
+            "tickers":[
+                `BMFBOVESPA:${this.ticker}`
+            ],
+            "query": {
+                "types":[]}
+            },
+        "columns":[
+            "Recommend.All",
+            "EMA5",
+            "close"
+        ]
+    }
+
+    return await axios.create({ headers: { 'Content-Type': 'application/x-www-form-urlencoded' }})
+                      .post('https://scanner.tradingview.com/brazil/scan', query)
+                      .then(res => (res.data.data));
+
   }
 }
 

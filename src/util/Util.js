@@ -33,15 +33,15 @@ class Util {
   /**
    * Get`s Stock price
    */
-  static getStockInfo(ticker){
-
-    const options = {};
-    options.ticker = (ticker.length >= 4 && ticker.length <= 5) ? ticker : '';
+  static async getStockInfo(ticker){
+    if(ticker.length < 4 || ticker.length > 5){
+          throw new Error(`The ${ticker} company must have between 4 and 5 caracters`);
+    }
 
     const query = {
         "symbols": {
             "tickers":[
-                `BMFBOVESPA:${options.ticker}`
+                `BMFBOVESPA:${ticker}`
             ],
             "query": {
                 "types":[]}
@@ -53,18 +53,12 @@ class Util {
         ]
     }
     
-    axios.create({ headers: { 'Content-Type': 'application/x-www-form-urlencoded' }, 
-                         httpsAgent: new https.Agent({ rejectUnauthorized: false })})
-                .post('https://scanner.tradingview.com/brazil/scan', query)
-                .then(res => { 
-                  options.recommandation = res.data.data[0].d[0];
-                  options.price          = res.data.data[0].d[2];
-                  
-                  return options;
-                })
-                .catch(err => console.log(err.message));
-    
-    return options;
+    const res = await axios.create({ headers: { 'Content-Type': 'application/x-www-form-urlencoded' }, 
+                                httpsAgent: new https.Agent({ rejectUnauthorized: false })})
+                      .post('https://scanner.tradingview.com/brazil/scan', query)
+                      .then(res =>  { return res.data.data[0].d; })
+                      .catch(err => console.log(err.message));
+    return res;
   }
 }
 

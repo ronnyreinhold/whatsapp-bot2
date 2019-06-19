@@ -47,24 +47,24 @@ client.on('message', async msg => {
 
     } else if (msg.body.startsWith('!stock ')) {
         let ticker  = msg.body.slice(7).toUpperCase();
-        let company =  new StockMarket(ticker);
-        console.log("company.price", company.price);
+        /*let company =  new StockMarket(ticker);
+        console.log("company.price", company.price);*/
 
-        /*let stockInfo = Util.getStockInfo(ticker);
-        console.log("stockInfo", stockInfo);
-        /*
+        let stockInfo = Util.getStockInfo(ticker);
         stockInfo.then(res => {
-            let company =  new StockMarket(res);
-            console.log(company.price);
-            console.log(company.bunda);
+            let options = {}
+            options.ticker = ticker;
+            options.stockInfo = res;
+            let company =  new StockMarket(options);
+            msg.reply(`
+                Company Info
+
+                *Ticker:*s ${options.ticker}
+                *Price:* ${company.price}
+                *Recomendation:* ${company.recommendation}
+            `);
         })
-        .catch(err => console.log(err));*/
-
-        //let company =  new StockMarket(stockInfo);
-        //let price   = company.price;
-        //console.log(price);
-        //client.sendMessage(msg.from, company.getPrice());
-
+        .catch(err => console.log(err));
     } else if (msg.body.startsWith('!subject ')) {
         // Altera o assunto do grupo
         let chat = await msg.getChat();

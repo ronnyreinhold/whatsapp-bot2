@@ -12,7 +12,7 @@ const session = {
     WAToken2: process.env.TOKEN2
 }
 
-const client = new Client({ session, chrome: Chrome.NO_SANDBOX, puppeteer: { headless: false }});
+const client = new Client({ /*session, chrome: Chrome.NO_SANDBOX,*/ puppeteer: { headless: false }});
 
 client.initialize();
 
@@ -47,8 +47,20 @@ client.on('message', async msg => {
 
     } else if (msg.body.startsWith('!stock ')) {
         let ticker  = msg.body.slice(7).toUpperCase();
-        let stockInfo = Util.getStockInfo(ticker);
-        let company =  new StockMarket();
+        let company =  new StockMarket(ticker);
+        console.log("company.price", company.price);
+
+        /*let stockInfo = Util.getStockInfo(ticker);
+        console.log("stockInfo", stockInfo);
+        /*
+        stockInfo.then(res => {
+            let company =  new StockMarket(res);
+            console.log(company.price);
+            console.log(company.bunda);
+        })
+        .catch(err => console.log(err));*/
+
+        //let company =  new StockMarket(stockInfo);
         //let price   = company.price;
         //console.log(price);
         //client.sendMessage(msg.from, company.getPrice());

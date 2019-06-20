@@ -20,14 +20,16 @@ Actually, it goes against whatsapp policy, then use it at your own risk.
 ## Bot Commands
 **!ping** Answer with pong message  
 **!echo** Answer with the same message  
-**!desc** Send group description   
+**!desc** Send group description
+**!ibov ticker** Send Stock Market info from `Bovespa B3`. You can specify a company ticke like PETR4 or a FII ticker like VRTA11.      
 
 To add more commands, edit bot.js file.
 
 ### TO-DO
 - [ ] Implement more bot commands 
 - [ ] Integrate with artificial intelligence 
-- [ ] Translate all comments to English
+- [ ] Translate all code comments to English
+- [x] Implement Stock Market Info.
 
 ### ~~Known Issues~~
 ~~You can't start Chromium as root user on Linux, it gives a Sandbox error.~~

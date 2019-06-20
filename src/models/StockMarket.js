@@ -6,25 +6,28 @@
 class StockMarket {
     constructor(data = {}){
         this._ticker         = data.ticker;
-        this._recommendation = data.stockInfo.recommendation;
-        this._price          = data.stockInfo.price;
+        this._name           = data.name;
+        this._price          = data.price;
+        this._recommendation = data.recommendation;
+        this._open           = data.open;
+        this._high           = data.high;
+        this._low            = data.low;
+        this._prevClose      = data.prevClose;
+        this._variation      = data.variation;
+        this._percent        = data.percent;     
     };
     
-    // Getters and Setters
+    // Getters 
     get ticker(){
         return this._ticker;
     }
 
-    set ticker(ticker){
-        this._ticker = ticker;
+    get name(){
+        return this._name;
     }
 
     get price(){
         return this._price;
-    }
-
-    set price(price){
-        this._price = price;
     }
 
     get recommendation(){
@@ -42,11 +45,31 @@ class StockMarket {
         } else {
             return "Não é possível recomendar essa ação"
         } 
+    }  
+
+    get open(){
+        return this._open;
     }
 
-    set recommendation(recommendation){
-        this._recommendation = recommendation;
-    }     
+    get high(){
+        return this._high;
+    }
+
+    get low(){
+        return this._low;
+    }
+
+    get prevClose(){
+        return this._prevClose
+    }
+    
+    get variation(){
+        return this._variation;
+    }
+
+    get percent(){
+        return this._percent;
+    }
 
 }
 

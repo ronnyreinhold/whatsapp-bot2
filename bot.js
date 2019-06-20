@@ -1,6 +1,6 @@
 const Client  = require('./src/Client');
 const Util = require('./src/util/Util');
-const StockMarket = require('./src/models/StockMarket');
+const StockMarketController = require('./src/controllers/StockMarketController');
 const { Chrome } = require('./src/util/Constants');
 const dotenv = require('dotenv');
 dotenv.config();
@@ -12,7 +12,7 @@ const session = {
     WAToken2: process.env.TOKEN2
 }
 
-const client = new Client({ session, chrome: Chrome.NO_SANDBOX, puppeteer: { headless: false }});
+const client = new Client({ /*session, chrome: Chrome.NO_SANDBOX,*/ puppeteer: { headless: false }});
 
 client.initialize();
 
@@ -50,18 +50,21 @@ client.on('message', async msg => {
         let ticker  = msg.body.slice(6).toUpperCase();
 
         // Obtem dados da ação selecionada e envia msg 
-        let stockInfo = Util.getStockInfo(ticker);
-        stockInfo.then(res => {
-            let data = {}
-            data.ticker = ticker;
-            data.stockInfo = res;
-            let company =  new StockMarket(data);
+        let stockInfo = StockMarketController.getStockInfoByTicker(ticker);
+        stockInfo.then(stock => {
             client.sendMessage(msg.from, 
-                `Company Info
+                `*Company Info*
 
-                *Ticker:* ${company.ticker}
-                *Price:* R$${company.price}
-                *Recomendation:* ${company.recommendation}`
+                *Ticker:* ${ticker}
+                *Nome:* ${stock.name}
+                *Preço:* R$${stock.price}
+                *Recomendação:* ${stock.recommendation}
+                *Abertura Dia:* R$${stock.open}
+                *Alta Dia:* R$${stock.high}
+                *Baixa Dia:* R$${stock.low}
+                *Fech Anterior:* R$${stock.prevClose}
+                *Variação R$:* R$${stock.variation}
+                *Variação %:* ${stock.percent}%`
             );
         })
         .catch(err => console.log(err));

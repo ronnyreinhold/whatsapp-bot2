@@ -1,15 +1,24 @@
 'use strict';
 
-const axios = require('axios');
-const https = require('https');
-
+/**
+ * Representa os dados de uma ação
+ */
 class StockMarket {
-    constructor(options = {}){
-        this._ticker         = options.ticker;
-        this._recommendation = options.stockInfo[0];
-        this._price          = options.stockInfo[2];
+    constructor(data = {}){
+        this._ticker         = data.ticker;
+        this._recommendation = data.stockInfo.recommendation;
+        this._price          = data.stockInfo.price;
     };
-  
+    
+    // Getters and Setters
+    get ticker(){
+        return this._ticker;
+    }
+
+    set ticker(ticker){
+        this._ticker = ticker;
+    }
+
     get price(){
         return this._price;
     }
@@ -19,7 +28,7 @@ class StockMarket {
     }
 
     get recommendation(){
-        console.log(this._recommendation)
+        // Verifica o valor da recomendação e retorna mensagem correspondente
         if(this._recommendation < -0.3){
             return "Venda Forte"
         } else if(this._recommendation < -0.1) {
@@ -30,8 +39,9 @@ class StockMarket {
             return "comprar"
         } else if(this._recommendation > 0.4){
             return "comprar Forte"
-        }
-        
+        } else {
+            return "Não é possível recomendar essa ação"
+        } 
     }
 
     set recommendation(recommendation){

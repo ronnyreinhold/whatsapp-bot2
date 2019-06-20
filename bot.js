@@ -12,7 +12,7 @@ const session = {
     WAToken2: process.env.TOKEN2
 }
 
-const client = new Client({ /*session, chrome: Chrome.NO_SANDBOX,*/ puppeteer: { headless: false }});
+const client = new Client({ session, chrome: Chrome.NO_SANDBOX, puppeteer: { headless: false }});
 
 client.initialize();
 
@@ -45,26 +45,27 @@ client.on('message', async msg => {
         // Envia mensagem para o mesmo chat
         client.sendMessage(msg.from, 'pong');
 
-    } else if (msg.body.startsWith('!stock ')) {
-        let ticker  = msg.body.slice(7).toUpperCase();
-        /*let company =  new StockMarket(ticker);
-        console.log("company.price", company.price);*/
+    } else if (msg.body.startsWith('!ibov ')) {
+        // Obtem o ticker enviado na msg
+        let ticker  = msg.body.slice(6).toUpperCase();
 
+        // Obtem dados da ação selecionada e envia msg 
         let stockInfo = Util.getStockInfo(ticker);
         stockInfo.then(res => {
-            let options = {}
-            options.ticker = ticker;
-            options.stockInfo = res;
-            let company =  new StockMarket(options);
-            msg.reply(`
-                Company Info
+            let data = {}
+            data.ticker = ticker;
+            data.stockInfo = res;
+            let company =  new StockMarket(data);
+            client.sendMessage(msg.from, 
+                `Company Info
 
-                *Ticker:*s ${options.ticker}
-                *Price:* ${company.price}
-                *Recomendation:* ${company.recommendation}
-            `);
+                *Ticker:* ${company.ticker}
+                *Price:* R$${company.price}
+                *Recomendation:* ${company.recommendation}`
+            );
         })
         .catch(err => console.log(err));
+
     } else if (msg.body.startsWith('!subject ')) {
         // Altera o assunto do grupo
         let chat = await msg.getChat();

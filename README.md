@@ -12,10 +12,17 @@ Actually, it goes against whatsapp policy, then use it at your own risk.
 1. Clone repository
 2. Run `yarn` on command line to download node_modules
 3. Run `yarn bot` to start application
-4. Scan `QR Code` with Whatsapp App or config `WA Session` into **Contants.js**
+4. Scan `QR Code` with Whatsapp App or config `WA Session` into **.env** file
+   It must contain `BROWSER_ID`, `SECRET_BUNDLE`, `TOKEN1` and `TOKEN2`
 5. Send BOT COMMANDS to control it.
 
-**Puppeteer** Will download Chromium automatically
+**Puppeteer** Will download Chromium automatically.
+
+## Run in Docker
+1. Clone repository
+2. Run `docker-compose up -d`  
+
+Dockerfile and docker-compose it's already pre-configured. You'll only need to provide your **WA Session** info into docker-compose, under **environment** options.
 
 ## Bot Commands
 **!ping** Answer with pong message  
@@ -26,10 +33,11 @@ Actually, it goes against whatsapp policy, then use it at your own risk.
 To add more commands, edit bot.js file.
 
 ### TO-DO
-- [ ] Implement more bot commands 
-- [ ] Integrate with artificial intelligence 
-- [ ] Translate all code comments to English
+- [ ] Implement more bot commands. 
+- [ ] Integrate with artificial intelligence. 
+- [ ] Translate all code comments to English.
 - [x] Implement Stock Market Info.
+- [x] Create Dockerfile.
 
 ### ~~Known Issues~~
 ~~You can't start Chromium as root user on Linux, it gives a Sandbox error.~~

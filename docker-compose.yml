@@ -8,7 +8,7 @@ services:
     volumes:
       - .:/usr/whatsapp-bot
     environment:
-      - BROWSER_ID="cJOzwqnROxSKFVz71x9HaA=="
-      - SECRET_BUNDLE={"key":"F9CeaBAjtAoO4VKA/umXAxIzYf3fJut0oxVJQNqhROE=","encKey":"wLFIe57g5PxI6L/H63V8cHFGekJy+EfKFPTKbG8kypg=","macKey":"F9CeaBAjtAoO4VKA/umXAxIzYf3fJut0oxVJQNqhROE="}
-      - TOKEN1="cHuZdapKLzy5JiQiqoOd/NO3l+6HV8ZoTtE6HaLRi/c="
-      - TOKEN2="1@oFqb5sPztl9UZ1Y0bhT5YhSLmw1CjZLxeathVny6xRYdfOz0Wy4hG8VZ8zK1wDwA3DKJVdqwfF3ZUw=="
+      - BROWSER_ID="yKBP1DEuf1iZbwrsOzP0iQ=="
+      - SECRET_BUNDLE={"key":"l7pvbcdR7NUHu63Gjn7J4qoJonRJB9Axv5SZ5NkE+no=","encKey":"sajxFmu+soJGDkjKZQaYt5GdyVxaEcjV/+ydOGqqVVA=","macKey":"l7pvbcdR7NUHu63Gjn7J4qoJonRJB9Axv5SZ5NkE+no="}
+      - TOKEN1="rVFBPkrVWikdALRG6KgVwctEJfGB0J/4H8zbEwkDAR8="
+      - TOKEN2="1@3d8l8wPqbut5DeQG1ZeEtmaRPZviRRPdKeNOZEI+Rf9SU5dNpo2RlY/kpybMfgg564PQc++fzmyYyw=="

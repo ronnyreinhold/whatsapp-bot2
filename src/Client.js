@@ -33,7 +33,7 @@ class Client extends EventEmitter {
      * Configura evento e inicia autenticação
      */
     async initialize() {
-        const browser = await puppeteer.launch(/*this.options.chrome,*/ this.options.puppeteer);
+        const browser = await puppeteer.launch(this.options.chrome || this.options.puppeteer);
         const page = await browser.newPage();
         page.setUserAgent(UserAgent);
 

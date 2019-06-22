@@ -1,0 +1,14 @@
+version: "3"
+services: 
+  api:
+    build: .
+    image: whatsapp-bot:latest
+    command: yarn bot
+    container_name: whatsapp-bot2
+    volumes:
+      - .:/usr/whatsapp-bot
+    environment:
+      - BROWSER_ID="cJOzwqnROxSKFVz71x9HaA=="
+      - SECRET_BUNDLE={"key":"F9CeaBAjtAoO4VKA/umXAxIzYf3fJut0oxVJQNqhROE=","encKey":"wLFIe57g5PxI6L/H63V8cHFGekJy+EfKFPTKbG8kypg=","macKey":"F9CeaBAjtAoO4VKA/umXAxIzYf3fJut0oxVJQNqhROE="}
+      - TOKEN1="cHuZdapKLzy5JiQiqoOd/NO3l+6HV8ZoTtE6HaLRi/c="
+      - TOKEN2="1@oFqb5sPztl9UZ1Y0bhT5YhSLmw1CjZLxeathVny6xRYdfOz0Wy4hG8VZ8zK1wDwA3DKJVdqwfF3ZUw=="

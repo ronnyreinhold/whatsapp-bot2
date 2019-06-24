@@ -12,7 +12,7 @@ Actually, it goes against whatsapp policy, then use it at your own risk.
 1. Clone repository
 2. Run `yarn` on command line to download node_modules
 3. Run `yarn bot` to start application
-4. Scan `QR Code` with Whatsapp App or config `WA Session` into **.env** file
+4. Scan `QR Code` with Whatsapp App or config `WA Session` by creating a **.env** file.
    It must contain `BROWSER_ID`, `SECRET_BUNDLE`, `TOKEN1` and `TOKEN2`
 5. Send BOT COMMANDS to control it.
 

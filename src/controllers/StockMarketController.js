@@ -3,7 +3,6 @@ const https = require('https');
 const StockMarket = require('../models/StockMarket');
 
 class StockMarketController {
-   
     /**
    * Get`s Stock info by it's ticker
    */

@@ -26,8 +26,8 @@ Dockerfile and docker-compose it's already pre-configured. You'll only need to p
 
 ## Bot Commands
 **!ping** Answer with pong message  
-**!echo** Answer with the same message  
-**!desc** Send group description
+**!echo** Answer with the same message     
+**!desc** Send group description   
 **!ibov ticker** Send Stock Market info from `Bovespa B3`. You can specify a company ticke like PETR4 or a FII ticker like VRTA11.      
 
 To add more commands, edit bot.js file.
@@ -37,9 +37,9 @@ To add more commands, edit bot.js file.
 - [ ] Integrate with artificial intelligence. 
 - [ ] Translate all code comments to English.
 - [x] Implement Stock Market Info.
-- [x] Create Dockerfile.
+- [x] Create a Dockerfile.
 
 ### ~~Known Issues~~
 ~~You can't start Chromium as root user on Linux, it gives a Sandbox error.~~
 ~~You can find a work around in [Puppeteer-Troubleshooting](https://github.com/GoogleChrome/puppeteer/blob/master/docs/troubleshooting.md).~~  
-You can pass `chome: Chrome.NO_SANDNBOX` proprierty into Client when instatiate it to solve this issue.  
+You can set to true a `NO_SANDBOX` variable into **.env** or **docker-compose** file to solve this issue. 

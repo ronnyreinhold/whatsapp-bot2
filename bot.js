@@ -2,21 +2,21 @@
  * @author Ronny Reinhold
  */
 
+'use strict'
+
 const Client  = require('./src/Client');
 const Util = require('./src/util/Util');
 const StockMarketController = require('./src/controllers/StockMarketController');
 const { Chrome } = require('./src/util/Constants');
-//const dotenv = require('dotenv');
-//dotenv.config();
+const dotenv = require('dotenv');
+dotenv.config();
 
-const session = {
-    WABrowserId: process.env.BROWSER_ID,
-    WASecretBundle: process.env.SECRET_BUNDLE,
-    WAToken1: process.env.TOKEN1,
-    WAToken2: process.env.TOKEN2
-}
+// Chromium config to accept root interaction
+const sandbox = process.env.NO_SANDBOX === "true" ? Chrome.NO_SANDBOX : false;
+// Gets Session config passed throught .env or dockerfile
+const session = Util.getSession();
 
-const client = new Client({ session, chrome: Chrome.NO_SANDBOX, puppeteer: { headless: false }});
+const client = new Client({ session, chrome: sandbox, puppeteer: { headless: false }});
 
 client.initialize();
 

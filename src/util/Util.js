@@ -31,6 +31,27 @@ class Util {
 
     return given;
   }
+
+  /**
+   * Gets session data passa throught Dockerfile or .env file
+   * @returns {object} session
+   * @private
+   */
+  static getSession(){
+    if( process.env.BROWSER_ID && process.env.SECRET_BUNDLE && process.env.TOKEN1 && process.env.TOKEN2 ) {
+      let session = {
+        WABrowserId: process.env.BROWSER_ID,
+        WASecretBundle: process.env.SECRET_BUNDLE,
+        WAToken1: process.env.TOKEN1,
+        WAToken2: process.env.TOKEN2
+      }
+
+      return session;
+    }
+    return false;
+  }
+
+
 }
 
 module.exports = Util;

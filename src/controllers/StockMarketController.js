@@ -11,6 +11,8 @@ const StockMarket = require('../models/StockMarket');
 class StockMarketController {
     /**
    * Get`s Stock info by it's ticker
+   * @param {string} ticker Company or FII ticker to fetch data from Stock Market API
+   * @return {StockMarket} class
    */
     static async getStockInfoByTicker(ticker){
         if(ticker.length < 5 || ticker.length > 6){

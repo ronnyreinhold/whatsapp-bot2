@@ -1,3 +1,9 @@
+/**
+ * @author Ronny Reinhold
+ */
+
+'use strict';
+
 const axios = require('axios');
 const https = require('https');
 const StockMarket = require('../models/StockMarket');

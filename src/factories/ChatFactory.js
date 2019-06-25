@@ -1,3 +1,7 @@
+/**
+ * @author Ronny Reinhold
+ */
+
 'use strict';
 
 const PrivateChat = require('../models/PrivateChat');

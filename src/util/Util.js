@@ -1,3 +1,7 @@
+/**
+ * @author Ronny Reinhold
+ */
+
 'use strict';
 
 const has = (o, k) => Object.prototype.hasOwnProperty.call(o, k);

@@ -1,3 +1,7 @@
+/**
+ * @author Ronny Reinhold
+ */
+
 'use strict';
 
 exports.WhatsWebURL = 'https://web.whatsapp.com/'
@@ -14,8 +18,7 @@ exports.DefaultOptions = {
     puppeteer: {
         headless: true
     },
-    session: false,
-    chrome: false
+    session: false
 }
 
 exports.Status = {

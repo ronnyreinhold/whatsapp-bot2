@@ -1,3 +1,7 @@
+/**
+ * @author Ronny Reinhold
+ */
+
 const Client  = require('./src/Client');
 const Util = require('./src/util/Util');
 const StockMarketController = require('./src/controllers/StockMarketController');

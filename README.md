@@ -1,8 +1,7 @@
 # Whatsapp Client
 BOT that connects throught Whatsapp Web Browser
 
-**NOTE** I've been testing this application and its working for me, but it's not totally safe. 
-Actually, it goes against whatsapp policy, then use it at your own risk. 
+**NOTE** I've been testing this application and its working fine although there's a lot of implementations I wanna do. 
 
 ## Prerequisites
 - [Node](https://nodejs.org/en/)
@@ -28,9 +27,9 @@ Dockerfile and docker-compose it's already pre-configured. You'll only need to p
 **!ping** Answer with pong message  
 **!echo** Answer with the same message     
 **!desc** Send group description   
-**!ibov ticker** Send Stock Market info from `Bovespa B3`. You can specify a company ticke like PETR4 or a FII ticker like VRTA11.      
+**!ibov ticker** Send Stock Market info from `Bovespa B3`. You can specify a company ticker like PETR4 or a FII ticker like VRTA11.      
 
-To add more commands, edit bot.js file.
+To add more commands, edit `bot.js` file.
 
 ### TO-DO
 - [ ] Implement more bot commands. 

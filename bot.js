@@ -51,10 +51,10 @@ client.on('message', async msg => {
 
     } else if (msg.body.startsWith('!ibov ')) {
         // Obtem o ticker enviado na msg
-        let ticker  = msg.body.slice(6).toUpperCase();
+        const ticker  = msg.body.slice(6).toUpperCase();
 
         // Obtem dados da ação selecionada e envia msg 
-        let stockInfo = StockMarketController.getStockInfoByTicker(ticker);
+        const stockInfo = StockMarketController.getStockInfoByTicker(ticker);
         stockInfo.then(stock => {
             client.sendMessage(msg.from, 
                 `*Company Info*

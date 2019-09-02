@@ -42,8 +42,34 @@ client.on('message', async msg => {
     console.log('MESSAGE RECEIVED', msg);
 
     if (msg.body.toUpperCase().indexOf('RONNY') > -1) {
-        // Envia mesangem como resposta
-        msg.reply('Chamou?');
+        // Verifica se a mensagem é privada
+        let chat = await msg.getChat();
+        if(chat.isGroup) {
+            // Envia mesangem como resposta
+            msg.reply('Chamou? Se for importante, manda msg no privado... Não estou conseguindo acompanhar os grupos 😓');
+        } else {
+            msg.reply('Chamou? 🤔');
+        }
+
+    } else if (
+        msg.body.toUpperCase().indexOf('OI') > -1 || 
+        msg.body.toUpperCase().indexOf('OPA') > -1 ||
+        msg.body.toUpperCase().indexOf('BOM DIA') > -1 ||
+        msg.body.toUpperCase().indexOf('BOA TARDE') > -1 ||
+        msg.body.toUpperCase().indexOf('BOA NOITE') > -1) {
+        
+        // Verifica se a mensagem é privada
+        let chat = await msg.getChat();
+        if(!chat.isGroup) {
+            // Envia mesangem como resposta
+            msg.reply('Oi, tudo bem? Olha só... me da uns minutinhos que já vou te responder');
+            client.sendMessage(msg.from, 'Se for algo muito urgente, por favor, ⚠ responada com a palavra: importante ⚠');
+            client.sendMessage(msg.from, 'Mas se for algo que podemos resolver com calma, envie um email com o assunto para: ronny@reinhold.com.br 📫 Obrigado!');
+        }
+
+    } else if (msg.body.toUpperCase().indexOf('IMPORTANTE') > -1) {
+        // Envia mensagem para o mesmo chat
+        msg.reply('Entendi, estou gerando uma notificação de alerta para o Ronny 👍');
 
     } else if (msg.body == '!ping') {
         // Envia mensagem para o mesmo chat
@@ -71,7 +97,6 @@ client.on('message', async msg => {
                 *Recomendação:* ${stock.recommendation}`
             );
         })
-        .catch(err => console.log(err));
 
     } else if (msg.body.startsWith('!subject ')) {
         // Altera o assunto do grupo

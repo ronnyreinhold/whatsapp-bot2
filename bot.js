@@ -63,13 +63,17 @@ client.on('message', async msg => {
         if(!chat.isGroup) {
             // Envia mesangem como resposta
             msg.reply('Oi, tudo bem? Olha só... me da uns minutinhos que já vou te responder');
-            client.sendMessage(msg.from, 'Se for algo muito urgente, por favor, ⚠ responada com a palavra: importante ⚠');
-            client.sendMessage(msg.from, 'Mas se for algo que podemos resolver com calma, envie um email com o assunto para: ronny@reinhold.com.br 📫 Obrigado!');
+            client.sendMessage(msg.from, 'Se for algo muito urgente, por favor, responada com a palavra: importante');
+            client.sendMessage(msg.from, 'Mas se for algo que podemos resolver com calma, envie um email com o assunto para: *ronny@reinhold.com.br*, Obrigado!');
         }
 
     } else if (msg.body.toUpperCase().indexOf('IMPORTANTE') > -1) {
-        // Envia mensagem para o mesmo chat
-        msg.reply('Entendi, estou gerando uma notificação de alerta para o Ronny 👍');
+        // Verifica se a mensagem é privada
+        let chat = await msg.getChat();
+        if(!chat.isGroup) {
+            // Envia mensagem para o mesmo chat
+            msg.reply('Entendi, estou gerando uma notificação de alerta para o Ronny 👍');
+        }
 
     } else if (msg.body == '!ping') {
         // Envia mensagem para o mesmo chat

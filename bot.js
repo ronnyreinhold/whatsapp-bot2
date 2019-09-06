@@ -63,7 +63,7 @@ client.on('message', async msg => {
         if(!chat.isGroup) {
             // Envia mesangem como resposta
             msg.reply('Oi, tudo bem? Olha só... me da uns minutinhos que já vou te responder');
-            client.sendMessage(msg.from, 'Se for algo muito urgente, por favor, responada com a palavra: importante');
+            client.sendMessage(msg.from, 'Se for algo muito urgente, por favor, responda com a palavra: importante');
             client.sendMessage(msg.from, 'Mas se for algo que podemos resolver com calma, envie um email com o assunto para: *ronny@reinhold.com.br*, Obrigado!');
         }
 

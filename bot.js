@@ -52,8 +52,8 @@ client.on('message', async msg => {
         }
 
     } else if (
-        msg.body.toUpperCase() == 'OI' > -1 || 
-        msg.body.toUpperCase() == 'OPA' > -1 ||
+        msg.body.toUpperCase() == 'OI' || 
+        msg.body.toUpperCase() == 'OPA' ||
         msg.body.toUpperCase().indexOf('BOM DIA') > -1 ||
         msg.body.toUpperCase().indexOf('BOA TARDE') > -1 ||
         msg.body.toUpperCase().indexOf('BOA NOITE') > -1) {
